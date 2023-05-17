@@ -9,7 +9,7 @@ import banner4 from '../../assets/banner/banner-4.jpg';
 
 const Hero = () => {
   return (
-    <div className="my-4">
+    <section className="my-4">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -61,7 +61,7 @@ const Hero = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-    </div>
+    </section>
   );
 };
 
