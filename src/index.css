@@ -5,3 +5,11 @@
 .max-w{
   @apply max-w-screen-xl mx-auto px-4;
 }
+/* body{
+  position: relative;
+}
+
+.sticky{
+  position: static;
+  top: 10px;
+} */
