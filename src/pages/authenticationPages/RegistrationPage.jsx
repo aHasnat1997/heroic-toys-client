@@ -6,8 +6,10 @@ import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import Swal from "sweetalert2";
+import { useTitle } from "../../hooks/useTitle";
 
 const RegistrationPage = () => {
+  useTitle('Registration');
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();

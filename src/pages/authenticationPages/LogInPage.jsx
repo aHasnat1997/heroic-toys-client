@@ -7,8 +7,10 @@ import { AuthContext } from "../../context/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import { useTitle } from "../../hooks/useTitle";
 
 const LogInPage = () => {
+  useTitle('Log in');
   const { singInUser, googlePopup } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const LogInPage = () => {
           title: '⛔ Oops...',
           text: 'Something went wrong!',
         });
-        console.log(message);
+        console.log(errorMessage);
       });
   };
 

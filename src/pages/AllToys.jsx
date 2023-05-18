@@ -1,7 +1,9 @@
 import { useLoaderData } from "react-router-dom";
+import { useTitle } from "../hooks/useTitle";
 
 
 const AllToys = () => {
+  useTitle('All Toys');
   const allToys = useLoaderData();
 
   return (
