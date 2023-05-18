@@ -5,6 +5,9 @@ import LogInPage from "../pages/authenticationPages/LogInPage";
 import RegistrationPage from "../pages/authenticationPages/RegistrationPage";
 import ErrorPage from "../pages/ErrorPage";
 import AllToys from "../pages/AllToys";
+import MyToys from "../pages/MyToys";
+import AddToy from "../pages/AddToy";
+import Blogs from "../pages/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +23,18 @@ export const router = createBrowserRouter([
         path: '/all-toys',
         element: <AllToys />,
         loader: () => fetch('https://heroic-toys-server.vercel.app/all-products')
+      },
+      {
+        path: '/my-toys',
+        element: <MyToys />
+      },
+      {
+        path: '/add-toy',
+        element: <AddToy />
+      },
+      {
+        path: '/blogs',
+        element: <Blogs />
       },
       {
         path: '/log-in',

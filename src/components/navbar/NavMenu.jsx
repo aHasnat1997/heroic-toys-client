@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const NavMenu = () => {
   return (
-    <div className="bg-base-100 sticky z-50 top-0">
+    <div className="bg-base-100 sticky z-30 top-0">
       <div className="max-w navbar">
         <div className="flex-1">
           <div className="dropdown dropdown-bottom">
@@ -18,11 +18,26 @@ const NavMenu = () => {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal gap-8 text-xl">
-            <NavLink to='/' className='font-bold hover:text-primary'>Home</NavLink>
-            <NavLink to='/all-toys' className='font-bold hover:text-primary'>All Toys</NavLink>
-            <NavLink to='/' className='font-bold hover:text-primary'>My Toys</NavLink>
-            <NavLink to='/' className='font-bold hover:text-primary'>Add A Toy</NavLink>
-            <NavLink to='/' className='font-bold hover:text-primary'>Blogs</NavLink>
+            <NavLink to='/'
+              className={({ isActive }) => isActive ? "text-primary" : ""}>
+              <span className="font-bold hover:text-primary">Home</span>
+            </NavLink>
+            <NavLink to='/all-toys'
+              className={({ isActive }) => isActive ? "text-primary" : ""}>
+              <span className="font-bold hover:text-primary">All Toys</span>
+            </NavLink>
+            <NavLink to='/my-toys'
+              className={({ isActive }) => isActive ? "text-primary" : ""}>
+              <span className="font-bold hover:text-primary">My Toys</span>
+            </NavLink>
+            <NavLink to='/add-toy'
+              className={({ isActive }) => isActive ? "text-primary" : ""}>
+              <span className="font-bold hover:text-primary">Add A Toy</span>
+            </NavLink>
+            <NavLink to='/blogs'
+              className={({ isActive }) => isActive ? "text-primary" : ""}>
+              <span className="font-bold hover:text-primary">Blogs</span>
+            </NavLink>
           </ul>
         </div>
       </div>

@@ -18,7 +18,7 @@ const Customers = () => {
       <img className="opacity-30 fixed top-0 -z-50" src={bg} />
       <div className="text-white">
         <h1 className='text-center text-4xl md:text-8xl mb-8'>Customer Feedback</h1>
-        <Marquee speed={30} pauseOnHover='true'>
+        <Marquee speed={80} pauseOnHover='true'>
           {
             feedbacks.map(feedback => <div key={feedback._id} className="card w-96 bg-transparent shadow-xl">
               <figure className="px-10 pt-10">
