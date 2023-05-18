@@ -1,16 +1,59 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import login from "../../assets/lottieJson/login.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const LogInPage = () => {
-
+  const { singInUser, googlePopup } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from = location.state?.from?.pathname || '/';
 
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
-    console.log(data)
+    console.log(data);
+    const {email, password} = data;
+    singInUser(email, password)
+      .then(result => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        Swal.fire({
+          icon: 'success',
+          title: 'Successfully! Log In Compleat🎉'
+        });
+        navigate(from, { replace: true });
+      })
+      .catch(error => {
+        const message = error.message;
+        setErrorMessage(message);
+        Swal.fire({
+          icon: 'error',
+          title: '⛔ Oops...',
+          text: 'Something went wrong!',
+        });
+        console.log(message);
+      });
   };
 
+  const google = () => {
+    googlePopup()
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        ('🎉 Successfully Log In with Google');
+        navigate(from, { replace: true });
+        console.log(user, token);
+      })
+      .catch((error) => console.log(error.code, error.message));
+  }
 
 
 
@@ -44,6 +87,12 @@ const LogInPage = () => {
                 <input type="submit" className="btn btn-primary" value='Login' />
               </div>
             </form>
+            <div className="divider">OR</div>
+            <div className='mx-auto mb-8'>
+              <button onClick={google} className='btn btn-lg btn-outline'>
+                <FaGoogle className="mr-2" /> Log in With Google
+              </button>
+            </div>
           </div>
         </div>
       </div>

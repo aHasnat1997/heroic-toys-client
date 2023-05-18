@@ -1,15 +1,43 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import registerImg from "../../assets/lottieJson/registration.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const RegistrationPage = () => {
-
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
+
   const onSubmit = data => {
     console.log(data)
-  };
+    const { name, photo, email, password } = data;
+    createUser(email, password)
+      .then(result => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        updateData(createdUser, name, photo)
+        Swal.fire({
+          icon: 'success',
+          title: 'Successfully! Registration Compleat🎉',
+          text: 'Now, Log In'
+        })
+        navigate('/log-in');
+      })
+      .catch(error => console.log(error));
 
+    const updateData = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo
+      })
+        .then(() => console.log('name add'))
+        .catch(error => console.log(error.message))
+    }
+  };
 
   return (
     <section className="max-w">

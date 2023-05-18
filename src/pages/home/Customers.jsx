@@ -10,7 +10,7 @@ const Customers = () => {
       .then(response => setFeedbacks(response))
       .catch(err => console.error(err));
   }, []);
-  console.log(feedbacks);
+  // console.log(feedbacks);
 
 
   return (
