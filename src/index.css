@@ -5,11 +5,10 @@
 .max-w{
   @apply max-w-screen-xl mx-auto px-4;
 }
-/* body{
-  position: relative;
-}
 
-.sticky{
-  position: static;
-  top: 10px;
-} */
+.discount{
+  width: 100%;
+  background: url(./src/assets/banner/banner-6.jpg) no-repeat;
+  background-position: top;
+  background-size: cover;
+}

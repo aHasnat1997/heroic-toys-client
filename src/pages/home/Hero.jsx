@@ -13,6 +13,7 @@ const Hero = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        loop={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,

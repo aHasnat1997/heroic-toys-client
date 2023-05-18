@@ -6,10 +6,12 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import 'aos/dist/aos.css'
+import StayTop from './components/StayTop';
 
 function App() {
   return (
     <main className='relative'>
+      <StayTop />
       <Nav />
       <Outlet />
       <Footer />
