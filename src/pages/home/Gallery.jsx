@@ -1,12 +1,12 @@
-import gallery1 from '../../../assets/gallery/gallery-img-1.jpg';
-import gallery2 from '../../../assets/gallery/gallery-img-4.jpg';
-import gallery3 from '../../../assets/gallery/gallery-img-11.jpg';
-import gallery4 from '../../../assets/gallery/gallery-img-6.jpg';
-import gallery5 from '../../../assets/gallery/gallery-img-8.jpg';
-import gallery6 from '../../../assets/gallery/gallery-img-9.jpg';
-import gallery7 from '../../../assets/gallery/gallery-img-2.jpg';
-import gallery9 from '../../../assets/gallery/gallery-img-10.jpg';
-import gallery10 from '../../../assets/gallery/gallery-img-7.jpg';
+import gallery1 from '../../assets/gallery/gallery-img-1.jpg';
+import gallery2 from '../../assets/gallery/gallery-img-4.jpg';
+import gallery3 from '../../assets/gallery/gallery-img-11.jpg';
+import gallery4 from '../../assets/gallery/gallery-img-6.jpg';
+import gallery5 from '../../assets/gallery/gallery-img-8.jpg';
+import gallery6 from '../../assets/gallery/gallery-img-9.jpg';
+import gallery7 from '../../assets/gallery/gallery-img-2.jpg';
+import gallery9 from '../../assets/gallery/gallery-img-10.jpg';
+import gallery10 from '../../assets/gallery/gallery-img-7.jpg';
 
 const Gallery = () => {
   return (

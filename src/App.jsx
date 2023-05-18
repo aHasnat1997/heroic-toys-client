@@ -5,9 +5,9 @@ import Footer from './components/footer/Footer';
 import 'swiper/css';
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import 'aos/dist/aos.css'
 
 function App() {
-
   return (
     <main className='relative'>
       <Nav />

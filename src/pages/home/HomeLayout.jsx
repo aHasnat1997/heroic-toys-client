@@ -1,6 +1,7 @@
 import { useTitle } from "../../hooks/useTitle";
-import Gallery from "./Gallery/Gallery";
+import Gallery from "./Gallery";
 import Hero from "./Hero";
+import OurProducts from "./OurProducts";
 import Services from "./Services";
 
 
@@ -11,6 +12,7 @@ const HomeLayout = () => {
       <Hero />
       <Services />
       <Gallery />
+      <OurProducts />
     </div>
   );
 };
