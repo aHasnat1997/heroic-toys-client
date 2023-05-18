@@ -9,7 +9,7 @@ import banner4 from '../../assets/banner/banner-4.jpg';
 
 const Hero = () => {
   return (
-    <section className="my-4">
+    <section className="py-4 bg-base-100">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

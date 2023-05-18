@@ -4,15 +4,16 @@ import logo from '../../assets/logo.png';
 
 const TopNav = () => {
   return (
-    <div className="max-w navbar bg-base-100">
-      <div className="flex-1">
-        <Link to='/'>
-          <img className="w-[10rem]" src={logo} alt="logo" />
-        </Link>
-      </div>
-      <div className="flex-none">
-        <Link className="btn btn-secondary btn-lg text-2xl font-extrabold">Sing in</Link>
-        {/* <div className="dropdown dropdown-end">
+    <div className="bg-base-100">
+      <div className="max-w navbar">
+        <div className="flex-1">
+          <Link to='/'>
+            <img className="w-[10rem]" src={logo} alt="logo" />
+          </Link>
+        </div>
+        <div className="flex-none">
+          <Link className="btn btn-secondary btn-lg text-2xl font-extrabold">Sing in</Link>
+          {/* <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-lg btn-ghost btn-circle">
             <div className="indicator">
               <FaShoppingCart className="text-4xl" />
@@ -46,8 +47,10 @@ const TopNav = () => {
             <li><a>Logout</a></li>
           </ul>
         </div> */}
+        </div>
       </div>
     </div>
+
   );
 };
 

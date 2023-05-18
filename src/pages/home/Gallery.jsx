@@ -12,7 +12,7 @@ const Gallery = () => {
   return (
     <>
       {/* <h1 className='text-center text-8xl mb-8'>Gallery</h1> */}
-      <div className='mb-16 grid grid-cols-3 lg:grid-cols-6'>
+      <div className='bg-base-100 pb-16 grid grid-cols-3 lg:grid-cols-6'>
         <div className="overflow-hidden">
           <img className='h-full duration-[2000ms] hover:scale-150' src={gallery1} />
         </div>
