@@ -27,13 +27,13 @@ const LogInPage = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input {...register("email")} type="email" placeholder="email" className="input input-bordered" />
+                <input {...register("email")} type="email" placeholder="email" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input {...register("password")} type="password" placeholder="password" className="input input-bordered" />
+                <input {...register("password")} type="password" placeholder="password" className="input input-bordered" required />
                 <label className="label">
                   <p className="text-lg">
                     Do not have an Account? <Link to='/registration' className="btn btn-link">Register</Link>
