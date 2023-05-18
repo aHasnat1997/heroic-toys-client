@@ -1,0 +1,26 @@
+import { useLoaderData } from "react-router-dom";
+
+
+const AllToys = () => {
+  const allToys = useLoaderData();
+
+  return (
+    <section className="max-w my-16 grid grid-cols-3 gap-4">
+      {
+        allToys.map(product => <div key={product._id} className="card h-[70vh] bg-secondary shadow-xl">
+          <figure><img className='duration-1000 hover:scale-150' src={product.image} alt="product image" /></figure>
+          <div className="card-body">
+            <h2 className="card-title">{product.name}</h2>
+            <p>Price: ${product.price}</p>
+            <p>Rating: {product.rating}</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">View Details</button>
+            </div>
+          </div>
+        </div>)
+      }
+    </section>
+  );
+};
+
+export default AllToys;

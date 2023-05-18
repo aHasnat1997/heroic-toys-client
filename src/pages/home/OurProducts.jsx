@@ -45,7 +45,7 @@ const OurProducts = () => {
         >
           {
             products.splice(0, 20).map(product => <SwiperSlide key={product._id}>
-              <div key={product._id} className="card h-[70vh] bg-secondary shadow-xl">
+              <div className="card h-[70vh] bg-secondary shadow-xl">
                 <figure><img className='duration-1000 hover:scale-150' src={product.image} alt="product image" /></figure>
                 <div className="card-body">
                   <h2 className="card-title">{product.name}</h2>

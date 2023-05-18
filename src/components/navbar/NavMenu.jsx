@@ -19,7 +19,7 @@ const NavMenu = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal gap-8 text-xl">
             <NavLink to='/' className='font-bold hover:text-primary'>Home</NavLink>
-            <NavLink to='/' className='font-bold hover:text-primary'>All Toys</NavLink>
+            <NavLink to='/all-toys' className='font-bold hover:text-primary'>All Toys</NavLink>
             <NavLink to='/' className='font-bold hover:text-primary'>My Toys</NavLink>
             <NavLink to='/' className='font-bold hover:text-primary'>Add A Toy</NavLink>
             <NavLink to='/' className='font-bold hover:text-primary'>Blogs</NavLink>
