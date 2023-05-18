@@ -12,7 +12,7 @@ const TopNav = () => {
           </Link>
         </div>
         <div className="flex-none">
-          <Link className="btn btn-secondary btn-lg text-2xl font-extrabold">Sing in</Link>
+          <Link to='/log-in' className="btn btn-secondary btn-lg text-2xl font-extrabold">Log in</Link>
           {/* <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-lg btn-ghost btn-circle">
             <div className="indicator">
