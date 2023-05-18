@@ -19,7 +19,7 @@ const OurProducts = () => {
       <Swiper
         breakpoints={{
           640: {
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
           768: {
             slidesPerView: 2,
