@@ -1,13 +1,16 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = data => {
-    const { name, image, price, rating, details, category , availableQuantity, featuredAs, sellerEmail, sellerName
+    const { name, image, price, rating, details, category, availableQuantity, featuredAs, sellerEmail, sellerName
     } = data;
     const productInfo = {
       name: name,
@@ -19,11 +22,40 @@ const AddToy = () => {
       availableQuantity: availableQuantity,
       featuredAs: featuredAs,
       seller: {
-        name:sellerName,
+        name: sellerName,
         email: sellerEmail,
       }
     }
     console.log(productInfo);
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(productInfo)
+    };
+
+    fetch('https://heroic-toys-server.vercel.app/all-products', options)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        if (response.insertedId) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Product Add Successfully 🎉'
+          });
+          navigate('/all-toys');
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        Swal.fire({
+          icon: 'error',
+          title: '⛔ Oops...',
+          text: 'Something went wrong!',
+        });
+      });
   };
 
 

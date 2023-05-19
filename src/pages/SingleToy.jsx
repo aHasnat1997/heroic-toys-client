@@ -18,7 +18,7 @@ const SingleToy = () => {
           <div className="flex flex-col gap-4">
             <h1 className="text-5xl font-bold leading-tight">{name}</h1>
             <p className="text-4xl">Price: ${price}</p>
-            <p className="text-xl">Category: <span className="capitalize">{category}</span></p>
+            <p className="text-xl">Category: <span className="uppercase">{category}</span></p>
             <p className="badge badge-lg badge-primary uppercase">{featuredAs}</p>
           </div>
           <div className="mt-auto flex justify-between">
