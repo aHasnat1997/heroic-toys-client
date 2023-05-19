@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
 import { FaBars, FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const NavMenu = () => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const options = { method: 'GET' };
+
+    fetch('https://heroic-toys-server.vercel.app/categories', options)
+      .then(response => response.json())
+      .then(response => setCategories(response))
+      .catch(err => console.error(err));
+  }, [])
+
+
   return (
     <div className="bg-base-100 sticky z-30 top-0">
       <div className="max-w navbar">
@@ -10,9 +22,12 @@ const NavMenu = () => {
             <label tabIndex={0} className="btn btn-lg rounded-full">
               <FaBars className="mr-4" /> ALL CATEGORIES <FaAngleDown className="ml-2" />
             </label>
-            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-52">
-              <li><a>Item 1</a></li>
-              <li><a>Item 2</a></li>
+            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-full">
+              {
+                categories.map(category => <li key={category._id}>
+                  <a className="uppercase">{category.category}</a>
+                </li>)
+              }
             </ul>
           </div>
         </div>

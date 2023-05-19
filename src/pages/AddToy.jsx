@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useTitle } from "../hooks/useTitle";
 
 const AddToy = () => {
+  useTitle('Add Toy');
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
