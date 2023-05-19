@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
 
 
@@ -16,7 +16,7 @@ const AllToys = () => {
             <p>Price: ${product.price}</p>
             <p>Rating: {product.rating}</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">View Details</button>
+              <Link to={`/single-toy/${product._id}`} className="btn btn-primary">View Details</Link>
             </div>
           </div>
         </div>)

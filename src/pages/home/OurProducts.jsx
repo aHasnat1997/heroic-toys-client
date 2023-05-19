@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 
 const OurProducts = () => {
@@ -52,7 +53,7 @@ const OurProducts = () => {
                   <p>Price: ${product.price}</p>
                   <p>Rating: {product.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/single-toy/${product._id}`} className="btn btn-primary">View Details</Link>
                   </div>
                 </div>
               </div>

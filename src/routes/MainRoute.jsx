@@ -9,6 +9,7 @@ import MyToys from "../pages/MyToys";
 import AddToy from "../pages/AddToy";
 import Blogs from "../pages/Blogs";
 import ProtectedRoute from "./ProtectedRoute";
+import SingleToy from "../pages/SingleToy";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ export const router = createBrowserRouter([
         path: '/all-toys',
         element: <AllToys />,
         loader: () => fetch('https://heroic-toys-server.vercel.app/all-products')
+      },
+      {
+        path: '/single-toy/:id',
+        element: <SingleToy />,
+        loader: ({ params }) => fetch(`https://heroic-toys-server.vercel.app/product/${params.id}`)
       },
       {
         path: '/my-toys',
