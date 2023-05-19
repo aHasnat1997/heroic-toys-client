@@ -33,7 +33,7 @@ const SingleToy = () => {
       </div>
       <div>
         {
-          details.map((detail, i) => <p key={i} className="my-4">{detail}</p>)
+          details?.map((detail, i) => <p key={i} className="my-4">{detail}</p>)
         }
       </div>
     </section>
