@@ -7,7 +7,7 @@ const AllToys = () => {
   const allToys = useLoaderData();
 
   return (
-    <section className="max-w my-16 grid grid-cols-3 gap-4">
+    <section className="max-w my-16 grid lg:grid-cols-3 gap-4">
       {
         allToys.map(product => <div key={product._id} className="card h-[70vh] bg-secondary shadow-xl">
           <figure><img className='duration-1000 hover:scale-150' src={product.image} alt="product image" /></figure>

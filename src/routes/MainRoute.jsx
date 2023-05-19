@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/single-toy/:id',
-        element: <SingleToy />,
+        element: <ProtectedRoute><SingleToy /></ProtectedRoute>,
         loader: ({ params }) => fetch(`https://heroic-toys-server.vercel.app/product/${params.id}`)
       },
       {

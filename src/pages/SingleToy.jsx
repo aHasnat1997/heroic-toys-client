@@ -9,7 +9,7 @@ const SingleToy = () => {
 
   return (
     <section className='max-w my-16'>
-      <div className='mb-16 flex gap-8'>
+      <div className='mb-16 flex flex-col lg:flex-row gap-8'>
         {/* <figure><img className='duration-1000 hover:scale-150' src={image} alt="product image" /></figure> */}
         <div className="w-full rounded-2xl overflow-hidden">
           <img className='w-full duration-1000 hover:scale-150' src={image} alt="Product Image" />
@@ -33,7 +33,7 @@ const SingleToy = () => {
       </div>
       <div>
         {
-          details.map((detail, i) => <p key={i}>{detail}</p>)
+          details.map((detail, i) => <p key={i} className="my-4">{detail}</p>)
         }
       </div>
     </section>
