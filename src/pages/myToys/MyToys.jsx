@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTitle } from "../../hooks/useTitle";
 import Modal from "./Modal";
+import Swal from "sweetalert2";
 
 
 const MyToys = () => {
@@ -15,6 +16,35 @@ const MyToys = () => {
       .then(response => setToys(response))
       .catch(err => console.error(err));
   }, []);
+
+  const handelDelete = id => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const options = { method: 'DELETE' };
+        fetch(`https://heroic-toys-server.vercel.app/product/${id}`, options)
+          .then(response => response.json())
+          .then(response => {
+            console.log(response);
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            const remaining = toys.filter(toy => toy._id !== id);
+            setToys(remaining);
+          })
+          .catch(err => console.error(err));
+      }
+    })
+  }
 
   // console.log(toys);
 
@@ -36,7 +66,7 @@ const MyToys = () => {
             {
               toys.map(toy => <tr key={toy._id} className="hover">
                 <td>
-                  <button className="btn btn-circle btn-outline">
+                  <button onClick={() => handelDelete(toy._id)} className="btn btn-circle btn-outline">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                   </button>
                 </td>
@@ -45,7 +75,7 @@ const MyToys = () => {
                 <td>{toy.availableQuantity}</td>
                 <td>{toy.details[0].slice(0, 30)}...</td>
                 <td>
-                  <label onClick={()=>setModal(toy)} htmlFor="my-modal" className="btn btn-outline btn-primary">Update</label>
+                  <label onClick={() => setModal(toy)} htmlFor="my-modal" className="btn btn-outline btn-primary">Update</label>
                 </td>
               </tr>)
             }
