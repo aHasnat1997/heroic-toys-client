@@ -38,7 +38,7 @@ const AddToy = () => {
       body: JSON.stringify(productInfo)
     };
 
-    fetch('https://heroic-toys-server.vercel.app/all-products', options)
+    fetch('http://localhost:3000/all-products', options)
       .then(response => response.json())
       .then(response => {
         console.log(response);

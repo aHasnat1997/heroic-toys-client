@@ -5,7 +5,7 @@ import bg from '../../assets/banner/background.jpg';
 const Customers = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   useEffect(() => {
-    fetch('https://heroic-toys-server.vercel.app/customer-feedback')
+    fetch('http://localhost:3000/customer-feedback')
       .then(response => response.json())
       .then(response => setFeedbacks(response))
       .catch(err => console.error(err));

@@ -13,7 +13,7 @@ const MyToys = () => {
   useEffect(() => {
     const options = { method: 'GET' };
 
-    fetch(`https://heroic-toys-server.vercel.app/my-toys?email=${user.email}`, options)
+    fetch(`http://localhost:3000/my-toys?email=${user.email}`, options)
       .then(response => response.json())
       .then(response => setToys(response))
       .catch(err => console.error(err));
@@ -31,7 +31,7 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const options = { method: 'DELETE' };
-        fetch(`https://heroic-toys-server.vercel.app/product/${id}`, options)
+        fetch(`http://localhost:3000/product/${id}`, options)
           .then(response => response.json())
           .then(response => {
             console.log(response);

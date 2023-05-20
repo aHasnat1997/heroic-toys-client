@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { FaBars, FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-const NavMenu = ({ isOpen, setOpen }) => {
+const NavMenu = ({ isOpen }) => {
   const [categories, setCategories] = useState([]);
-  const [filter, setFilter] = useState([]);
   useEffect(() => {
     const options = { method: 'GET' };
 
-    fetch('https://heroic-toys-server.vercel.app/categories', options)
+    fetch('http://localhost:3000/categories', options)
       .then(response => response.json())
-      .then(response => setCategories(response))
+      .then(response => {
+        let filter = [];
+        response.map(category => filter.push(category.category))
+        setCategories([...new Set(filter)])
+      })
       .catch(err => console.error(err));
   }, [])
 
@@ -26,8 +29,8 @@ const NavMenu = ({ isOpen, setOpen }) => {
             </label>
             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-full">
               {
-                categories.map(category => <li key={category._id}>
-                  <a className="uppercase">{category.category}</a>
+                categories.map((category, i) => <li key={i}>
+                  <a className="uppercase">{category}</a>
                 </li>)
               }
             </ul>

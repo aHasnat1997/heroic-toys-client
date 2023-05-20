@@ -11,7 +11,7 @@ const OurProducts = () => {
   const [spin, setSpin] = useState(false);
   useEffect(() => {
     setSpin(true);
-    fetch(`https://heroic-toys-server.vercel.app/all-products/${filter}`)
+    fetch(`http://localhost:3000/all-products/${filter}`)
       .then(response => response.json())
       .then(response => {
         setProducts(response);
