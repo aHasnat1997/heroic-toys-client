@@ -2,21 +2,60 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import { Link } from "react-router-dom";
+import logo from "../../assets/favicon.png"
 
 
 const OurProducts = () => {
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState("all");
+  const [spin, setSpin] = useState(false);
   useEffect(() => {
-    fetch('https://heroic-toys-server.vercel.app/all-products')
+    setSpin(true);
+    fetch(`https://heroic-toys-server.vercel.app/all-products/${filter}`)
       .then(response => response.json())
-      .then(response => setProducts(response))
+      .then(response => {
+        setProducts(response);
+        setSpin(false);
+      })
       .catch(err => console.error(err));
-  }, []);
+  }, [filter]);
 
+  if (spin) {
+    return (
+      <section className="pb-16 bg-base-100">
+        <h1 className='text-center text-4xl md:text-8xl mb-8'>Our Products</h1>
+        <div className="mb-4 flex justify-center gap-4">
+          <button onClick={() => setFilter("hot-product")} className="btn btn-outline btn-primary">
+            Hot Product
+          </button>
+          <button onClick={() => setFilter("best-sellers")} className="btn btn-outline btn-primary">
+            Best Sellers
+          </button>
+          <button onClick={() => setFilter("new-arrival")} className="btn btn-outline btn-primary">
+            New Arrival
+          </button>
+        </div>
+        <div className="w-full my-60 text-8xl flex justify-center">
+          <img src={logo} className='w-40 animate-ping' />
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="pb-16 bg-base-100">
       <h1 className='text-center text-4xl md:text-8xl mb-8'>Our Products</h1>
+      <div className="mb-4 flex justify-center gap-4">
+        <button onClick={() => setFilter("hot-product")} className="btn btn-outline btn-primary">
+          Hot Product
+        </button>
+        <button onClick={() => setFilter("best-sellers")} className="btn btn-outline btn-primary">
+          Best Sellers
+        </button>
+        <button onClick={() => setFilter("new-arrival")} className="btn btn-outline btn-primary">
+          New Arrival
+        </button>
+      </div>
       <div className="max-w">
         <Swiper
           breakpoints={{

@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       {
         path: '/all-toys',
         element: <AllToys />,
-        loader: () => fetch('https://heroic-toys-server.vercel.app/all-products')
+        loader: () => fetch('https://heroic-toys-server.vercel.app/all-products/all')
       },
       {
         path: '/single-toy/:id',

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
-import { FaAffiliatetheme } from "react-icons/fa";
+import logo from "../assets/favicon.png"
 
 
 // IoFastFoodSharp
@@ -12,8 +12,8 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return <div className="w-full my-60 text-8xl flex justify-center">
-      <FaAffiliatetheme className='animate-spin' />
-    </div>
+    <img src={logo} className='w-40 animate-ping' />
+  </div>
   }
 
   if (user) {
