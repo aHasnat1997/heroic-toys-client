@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <section className="bg-base-100">
       <div className="max-w py-16 flex flex-col lg:flex-row gap-2">
-        <div data-aos="fade-right" className="flex items-center gap-2 bg-secondary duration-700 hover:bg-primary hover:text-black p-8 rounded-md">
+        <div data-aos="flip-right" className="flex items-center gap-2 bg-secondary duration-700 hover:bg-primary hover:text-black p-8 rounded-md">
           <img className='w-20' src={icon1} alt="icon" />
           <div>
             <h4 className='text-lg font-semibold'>Delivery Anywhere</h4>
@@ -30,7 +30,7 @@ const Services = () => {
             <p>On every order over $130.00</p>
           </div>
         </div>
-        <div data-aos="fade-left" className="flex items-center gap-2 bg-secondary duration-700 hover:bg-primary hover:text-black p-8 rounded-md">
+        <div data-aos="flip-left" className="flex items-center gap-2 bg-secondary duration-700 hover:bg-primary hover:text-black p-8 rounded-md">
           <img className='w-20' src={icon4} alt="icon" />
           <div>
             <h4 className='text-lg font-semibold'>Return Policy</h4>

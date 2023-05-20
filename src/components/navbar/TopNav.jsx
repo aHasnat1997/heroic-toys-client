@@ -3,18 +3,25 @@ import logo from '../../assets/logo.png';
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import userIcon from '../../assets/icons/profile-icon.jpg';
+import { FaBars, FaTimes } from "react-icons/fa";
 
-const TopNav = () => {
+const TopNav = ({ isOpen, setOpen }) => {
   const { user, singOutUser } = useContext(AuthContext);
+
   return (
     <div className="bg-base-100">
-      <div className="max-w navbar">
-        <div className="flex-1">
+      <div className="max-w navbar justify-between">
+        <button onClick={() => setOpen(!isOpen)} className='btn btn-outline lg:hidden'>
+          {
+            isOpen ? <FaTimes className="text-4xl" /> : <FaBars className="text-4xl" />
+          }
+        </button>
+        <div>
           <Link to='/'>
             <img className="w-[10rem]" src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="flex-none">
+        <div>
           {
             user ? <div className="dropdown dropdown-end tooltip tooltip-left" data-tip={user?.displayName}>
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

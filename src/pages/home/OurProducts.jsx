@@ -24,7 +24,7 @@ const OurProducts = () => {
     return (
       <section className="pb-16 bg-base-100">
         <h1 className='text-center text-4xl md:text-8xl mb-8'>Our Products</h1>
-        <div className="mb-4 flex justify-center gap-4">
+        <div className="mb-4 flex justify-center md:gap-4">
           <button onClick={() => setFilter("hot-product")} className="btn btn-outline btn-primary">
             Hot Product
           </button>
@@ -45,7 +45,7 @@ const OurProducts = () => {
   return (
     <section className="pb-16 bg-base-100">
       <h1 className='text-center text-4xl md:text-8xl mb-8'>Our Products</h1>
-      <div className="mb-4 flex justify-center gap-4">
+      <div className="mb-4 flex justify-center md:gap-4">
         <button onClick={() => setFilter("hot-product")} className="btn btn-outline btn-primary">
           Hot Product
         </button>

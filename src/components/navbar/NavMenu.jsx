@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { FaBars, FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-const NavMenu = () => {
+const NavMenu = ({ isOpen, setOpen }) => {
   const [categories, setCategories] = useState([]);
+  const [filter, setFilter] = useState([]);
   useEffect(() => {
     const options = { method: 'GET' };
 
@@ -15,8 +16,9 @@ const NavMenu = () => {
 
 
   return (
-    <div className="bg-base-100 sticky z-30 top-0">
-      <div className="max-w navbar">
+    <div className={`bg-base-100 h-screen lg:h-full fixed top-0 z-30 duration-500 lg:sticky
+    ${isOpen ? 'right-0' : '-right-96'}`}>
+      <div className="max-w navbar flex-col lg:flex-row">
         <div className="flex-1">
           <div className="dropdown dropdown-bottom">
             <label tabIndex={0} className="btn btn-lg rounded-full">
@@ -32,7 +34,7 @@ const NavMenu = () => {
           </div>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal gap-8 text-xl">
+          <ul className="menu flex-col lg:flex-row menu-horizontal gap-8 text-xl">
             <NavLink to='/'
               className={({ isActive }) => isActive ? "text-primary" : ""}>
               <span className="font-bold hover:text-primary">Home</span>
