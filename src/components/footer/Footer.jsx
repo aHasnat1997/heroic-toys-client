@@ -2,7 +2,7 @@ import logo from '../../assets/favicon.png';
 
 const Footer = () => {
   return (
-    <>
+    <section className='mt-auto'>
       <footer className="bg-accent text-black">
         <div className="max-w footer p-10">
           <div>
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </>
+    </section>
   );
 };
 

@@ -4,16 +4,15 @@ import { AuthContext } from '../context/AuthProvider';
 import logo from "../assets/favicon.png"
 
 
-// IoFastFoodSharp
-// eslint-disable-next-line react/prop-types
+
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
   if (loading) {
     return <div className="w-full my-60 text-8xl flex justify-center">
-    <img src={logo} className='w-40 animate-ping' />
-  </div>
+      <img src={logo} className='w-40 animate-ping' />
+    </div>
   }
 
   if (user) {
@@ -21,6 +20,6 @@ const ProtectedRoute = ({ children }) => {
   }
 
   return <Navigate to='/log-in' state={{ from: location }} replace />;
-};
 
+}
 export default ProtectedRoute;

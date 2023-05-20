@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBars, FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const NavMenu = ({ isOpen }) => {
+  const { user } = useContext(AuthContext);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const options = { method: 'GET' };
@@ -38,26 +40,36 @@ const NavMenu = ({ isOpen }) => {
         </div>
         <div className="flex-none">
           <ul className="menu flex-col lg:flex-row menu-horizontal gap-8 text-xl">
-            <NavLink to='/'
-              className={({ isActive }) => isActive ? "text-primary" : ""}>
-              <span className="font-bold hover:text-primary">Home</span>
-            </NavLink>
-            <NavLink to='/all-toys'
-              className={({ isActive }) => isActive ? "text-primary" : ""}>
-              <span className="font-bold hover:text-primary">All Toys</span>
-            </NavLink>
-            <NavLink to='/my-toys'
-              className={({ isActive }) => isActive ? "text-primary" : ""}>
-              <span className="font-bold hover:text-primary">My Toys</span>
-            </NavLink>
-            <NavLink to='/add-toy'
-              className={({ isActive }) => isActive ? "text-primary" : ""}>
-              <span className="font-bold hover:text-primary">Add A Toy</span>
-            </NavLink>
-            <NavLink to='/blogs'
-              className={({ isActive }) => isActive ? "text-primary" : ""}>
-              <span className="font-bold hover:text-primary">Blogs</span>
-            </NavLink>
+            <div>
+              <NavLink to='/'
+                className={({ isActive }) => isActive ? "text-primary" : ""}>
+                <span className="font-bold hover:text-primary">Home</span>
+              </NavLink>
+            </div>
+            <div>
+              <NavLink to='/all-toys'
+                className={({ isActive }) => isActive ? "text-primary" : ""}>
+                <span className="font-bold hover:text-primary">All Toys</span>
+              </NavLink>
+            </div>
+            <div className={`${user ? "visible" : "hidden"}`}>
+              <NavLink to='/my-toys'
+                className={({ isActive }) => isActive ? "text-primary" : ""}>
+                <span className="font-bold hover:text-primary">My Toys</span>
+              </NavLink>
+            </div>
+            <div className={`${user ? "visible" : "hidden"}`}>
+              <NavLink to='/add-toy'
+                className={({ isActive }) => isActive ? "text-primary" : ""}>
+                <span className="font-bold hover:text-primary">Add A Toy</span>
+              </NavLink>
+            </div>
+            <div>
+              <NavLink to='/blogs'
+                className={({ isActive }) => isActive ? "text-primary" : ""}>
+                <span className="font-bold hover:text-primary">Blogs</span>
+              </NavLink>
+            </div>
           </ul>
         </div>
       </div>

@@ -60,8 +60,8 @@ const Modal = ({ toy }) => {
               <input name="category" defaultValue={category} type="text" className="input input-bordered w-full" required />
               <input name="availableQuantity" defaultValue={availableQuantity} type="text" className="input input-bordered w-full" required />
               <input name="rating" defaultValue={rating} type="text" className="input input-bordered w-full" required />
-              <select name="featuredAs" defaultValue={featuredAs} className="input input-bordered w-full" required>
-                <option value="">Featured As</option>
+              <select name="featuredAs" className="input input-bordered w-full" required>
+                <option>Featured As</option>
                 <option value="hot-product">Hot Product</option>
                 <option value="best-sellers">Best Sellers</option>
                 <option value="new-arrival">New Arrival</option>

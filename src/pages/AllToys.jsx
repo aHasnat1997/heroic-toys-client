@@ -11,7 +11,7 @@ const AllToys = () => {
 
   const handelSearch = e => {
     const searchBox = e.target.parentNode.childNodes[0].value;
-    
+
     const options = { method: 'GET' };
 
     fetch(`http://localhost:3000/searchText/${searchBox}`, options)
@@ -28,7 +28,7 @@ const AllToys = () => {
           Search
         </button>
       </div>
-      <div className="w-full">
+      <div className="lg:w-full overflow-x-auto">
         <table className="table w-full mx-auto">
           <thead>
             <tr>

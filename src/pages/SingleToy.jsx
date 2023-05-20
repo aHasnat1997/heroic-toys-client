@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 
 
 const SingleToy = () => {
-  const { image, name, price, category, featuredAs, seller, rating, details } = useLoaderData();
+  const { image, name, price, category, featuredAs, seller, rating, details, availableQuantity } = useLoaderData();
   // console.log(toy);
 
 
@@ -19,6 +19,7 @@ const SingleToy = () => {
             <p className="text-4xl">Price: ${price}</p>
             <p className="text-xl">Category: <span className="uppercase">{category}</span></p>
             <p className="badge badge-lg badge-primary uppercase">{featuredAs}</p>
+            <p>Quantity: {availableQuantity}</p>
           </div>
           <div className="mt-auto flex justify-between">
             <p>

@@ -10,14 +10,23 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   const [modal, setModal] = useState({});
+  const [sort, setSort] = useState("1");
+
+
+  const handelSort = event => {
+    const value = event.target.value;
+    // console.log(value);
+    setSort(value);
+  }
+
   useEffect(() => {
     const options = { method: 'GET' };
 
-    fetch(`http://localhost:3000/my-toys?email=${user.email}`, options)
+    fetch(`http://localhost:3000/my-toys?email=${user.email}&value=${sort}`, options)
       .then(response => response.json())
       .then(response => setToys(response))
       .catch(err => console.error(err));
-  }, []);
+  }, [sort]);
 
   const handelDelete = id => {
     Swal.fire({
@@ -48,12 +57,18 @@ const MyToys = () => {
     })
   }
 
-  console.log(toys);
+  // console.log(toys);
 
   return (
-    <section className="max-w my-16">
+    <section className="max-w w-full my-16">
       {
         toys.length !== 0 ? <>
+          <div className="mb-4 ml-auto">
+            <select onChange={handelSort} className="select select-bordered w-full max-w-xs">
+              <option value="1">Price Low to High</option>
+              <option value="-1">Price High to Low</option>
+            </select>
+          </div>
           <div className="overflow-x-auto">
             <table className="table w-full">
               <thead>
@@ -87,8 +102,8 @@ const MyToys = () => {
             </table>
           </div>
           <Modal toy={modal} />
-        </>:
-        <h1 className="text-6xl font-bold text-center">You don't add any Product</h1>
+        </> :
+          <h1 className="text-6xl font-bold text-center">You don't add any Product</h1>
       }
     </section>
   );

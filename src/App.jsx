@@ -10,7 +10,7 @@ import StayTop from './components/StayTop';
 
 function App() {
   return (
-    <main className='relative'>
+    <main className='min-h-screen flex flex-col'>
       <StayTop />
       <Nav />
       <Outlet />

@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import { Link } from "react-router-dom";
-import logo from "../../assets/favicon.png"
+import logo from "../../assets/favicon.png";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
 const OurProducts = () => {
   const [products, setProducts] = useState([]);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("best-sellers");
   const [spin, setSpin] = useState(false);
   useEffect(() => {
     setSpin(true);
@@ -42,17 +44,21 @@ const OurProducts = () => {
     )
   }
 
+
   return (
     <section className="pb-16 bg-base-100">
       <h1 className='text-center text-4xl md:text-8xl mb-8'>Our Products</h1>
       <div className="mb-4 flex justify-center md:gap-4">
-        <button onClick={() => setFilter("hot-product")} className="btn btn-outline btn-primary">
+        <button onClick={() => setFilter("hot-product")}
+          className={`btn  btn-primary ${filter === "hot-product" ? "btn-primary" : "btn-outline"}`}>
           Hot Product
         </button>
-        <button onClick={() => setFilter("best-sellers")} className="btn btn-outline btn-primary">
+        <button onClick={() => setFilter("best-sellers")}
+          className={`btn  btn-primary ${filter === "best-sellers" ? "btn-primary" : "btn-outline"}`}>
           Best Sellers
         </button>
-        <button onClick={() => setFilter("new-arrival")} className="btn btn-outline btn-primary">
+        <button onClick={() => setFilter("new-arrival")}
+          className={`btn  btn-primary ${filter === "new-arrival" ? "btn-primary" : "btn-outline"}`}>
           New Arrival
         </button>
       </div>
@@ -60,7 +66,7 @@ const OurProducts = () => {
         <Swiper
           breakpoints={{
             640: {
-              slidesPerView: 2,
+              slidesPerView: 1,
             },
             768: {
               slidesPerView: 2,
