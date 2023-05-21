@@ -1,9 +1,9 @@
-
+// import bgImg from '../../assets/banner/banner-6.jpg';
 
 const Discount = () => {
   return (
     <section className="bg-base-100 py-16">
-      <div className="discount max-w py-28 rounded-3xl">
+      <div className="max-w rounded-3xl">
         <h1 className="text-6xl font-extrabold mb-4">Get upto 20%<br />off with coupon code </h1>
         <div className="form-control lg:w-1/2">
           <div className="relative">

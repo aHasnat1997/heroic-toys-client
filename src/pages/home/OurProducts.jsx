@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import logo from "../../assets/favicon.png";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 
 
 const OurProducts = () => {
@@ -13,7 +11,7 @@ const OurProducts = () => {
   const [spin, setSpin] = useState(false);
   useEffect(() => {
     setSpin(true);
-    fetch(`http://localhost:3000/all-products/${filter}`)
+    fetch(`https://heroic-toys-server.vercel.app/all-products/${filter}`)
       .then(response => response.json())
       .then(response => {
         setProducts(response);
@@ -90,7 +88,7 @@ const OurProducts = () => {
           className="mySwiper"
         >
           {
-            products.splice(0, 20).map(product => <SwiperSlide key={product._id}>
+            products.map(product => <SwiperSlide key={product._id}>
               <div className="card h-[70vh] bg-secondary shadow-xl">
                 <figure><img className='duration-1000 hover:scale-150' src={product.image} alt="product image" /></figure>
                 <div className="card-body">

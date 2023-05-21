@@ -9,7 +9,7 @@ const NavMenu = ({ isOpen }) => {
   useEffect(() => {
     const options = { method: 'GET' };
 
-    fetch('http://localhost:3000/categories', options)
+    fetch('https://heroic-toys-server.vercel.app/categories', options)
       .then(response => response.json())
       .then(response => {
         let filter = [];

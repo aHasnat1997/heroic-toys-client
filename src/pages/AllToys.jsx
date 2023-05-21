@@ -1,23 +1,52 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
-import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import logo from "../assets/favicon.png";
 
 
 const AllToys = () => {
   useTitle('All Toys');
-  const loadAllToys = useLoaderData();
-  const [allToys, setAllToys] = useState(loadAllToys)
-
-  const handelSearch = e => {
-    const searchBox = e.target.parentNode.childNodes[0].value;
+  const [loadAllToys, setLoadAllToys] = useState([]);
+  const [limit, setLimit] = useState("20");
+  const [page, setPage] = useState("1")
+  const [spin, setSpin] = useState(false);
+  useEffect(() => {
+    setSpin(true);
 
     const options = { method: 'GET' };
 
-    fetch(`http://localhost:3000/searchText/${searchBox}`, options)
+    fetch(`https://heroic-toys-server.vercel.app/all-products/all?limit=${limit}&page=${page}`, options)
       .then(response => response.json())
-      .then(response => setAllToys(response))
+      .then(response => {
+        setLoadAllToys(response)
+        setSpin(false);
+      })
       .catch(err => console.error(err));
+  }, [limit, page])
+
+  const handelSearch = e => {
+    const searchBox = e.target.parentNode.childNodes[0].value;
+    setSpin(true);
+    const options = { method: 'GET' };
+
+    fetch(`https://heroic-toys-server.vercel.app/searchText/${searchBox}`, options)
+      .then(response => response.json())
+      .then(response => {
+        setLoadAllToys(response)
+        setSpin(false);
+      })
+      .catch(err => console.error(err));
+    console.log(searchBox);
+  }
+
+  if (spin) {
+    return (
+      <section className="pb-16 bg-base-100">
+        <div className="w-full my-60 text-8xl flex justify-center">
+          <img src={logo} className='w-40 animate-ping' />
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -43,7 +72,7 @@ const AllToys = () => {
           </thead>
           <tbody>
             {
-              allToys.map(product => <tr key={product._id}>
+              loadAllToys.map(product => <tr key={product._id}>
                 <th>
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
@@ -68,6 +97,16 @@ const AllToys = () => {
             }
           </tbody>
         </table>
+      </div>
+      <div>
+        <div className="btn-group grid grid-cols-2">
+          <button className="btn btn-outline" onClick={() => {
+            parseInt(page) === 1 ? setPage(1) : setPage(parseInt(page) - 1)
+          }}>Previous page</button>
+          <button className="btn btn-outline" onClick={() => {
+            setPage(parseInt(page) + 1)
+          }}>Next</button>
+        </div>
       </div>
     </section>
   );

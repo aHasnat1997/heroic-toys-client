@@ -30,7 +30,7 @@ const Modal = ({ toy }) => {
       body: JSON.stringify(data)
     };
 
-    fetch(`http://localhost:3000/product/${_id}`, options)
+    fetch(`https://heroic-toys-server.vercel.app/product/${_id}`, options)
       .then(response => response.json())
       .then(response => {
         console.log(response);

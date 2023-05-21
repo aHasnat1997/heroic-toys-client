@@ -6,9 +6,3 @@
   @apply max-w-screen-xl mx-auto px-4;
 }
 
-.discount{
-  width: 100%;
-  background: url(./src/assets/banner/banner-6.jpg) no-repeat;
-  background-position: top;
-  background-size: cover;
-}

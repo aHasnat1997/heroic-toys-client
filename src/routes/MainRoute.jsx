@@ -23,13 +23,12 @@ export const router = createBrowserRouter([
       },
       {
         path: '/all-toys',
-        element: <AllToys />,
-        loader: () => fetch('http://localhost:3000/all-products/all')
+        element: <AllToys />
       },
       {
         path: '/single-toy/:id',
         element: <ProtectedRoute><SingleToy /></ProtectedRoute>,
-        loader: ({ params }) => fetch(`http://localhost:3000/product/${params.id}`)
+        loader: ({ params }) => fetch(`https://heroic-toys-server.vercel.app/product/${params.id}`)
       },
       {
         path: '/my-toys',

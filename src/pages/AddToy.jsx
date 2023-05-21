@@ -38,7 +38,7 @@ const AddToy = () => {
       body: JSON.stringify(productInfo)
     };
 
-    fetch('http://localhost:3000/all-products', options)
+    fetch('https://heroic-toys-server.vercel.app/all-products', options)
       .then(response => response.json())
       .then(response => {
         console.log(response);
@@ -76,7 +76,7 @@ const AddToy = () => {
           <input {...register("availableQuantity")} type="text" placeholder="Available Quantity" className="input input-bordered w-full" required />
           <input {...register("rating")} type="text" placeholder="Rating" className="input input-bordered w-full" required />
           <select {...register("featuredAs")} placeholder="Featured As" className="input input-bordered w-full" required>
-            <option disabled selected>Featured As</option>
+            <option>Featured As</option>
             <option value="hot-product">Hot Product</option>
             <option value="best-sellers">Best Sellers</option>
             <option value="new-arrival">New Arrival</option>

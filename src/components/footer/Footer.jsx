@@ -51,6 +51,9 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      <footer className="px-10 py-2 bg-accent text-black border-base-300">
+        <h4 className='text-center'>Copyright © 2023 Heroic Toys Ltd. All rights reserved.</h4>
+      </footer>
     </section>
   );
 };
